@@ -39,8 +39,6 @@ passport.deserializeUser(function(id, done) {
 });
 
 module.exports = {
-
-
   logint: passport.authenticate('twitter'),
   loginf: passport.authenticate('facebook', {
     scope: 'email,public_profile,user_posts,publish_actions'
@@ -61,7 +59,7 @@ module.exports = {
     res.send("FAIL");
   },
   profile: function(req, res) {
-    res.send(req.session);
+    res.send(req.session.passport);
   },
   checkpassport: function(req, res) {
     req.session.passport = {
